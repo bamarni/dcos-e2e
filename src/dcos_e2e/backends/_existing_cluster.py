@@ -3,7 +3,7 @@ Helpers for interacting with existing clusters.
 """
 
 from pathlib import Path
-from typing import Any, Dict, Set, Type
+from typing import Any, Dict, Set
 
 from dcos_e2e.backends._base_classes import ClusterBackend, ClusterManager
 from dcos_e2e.node import Node
@@ -31,7 +31,7 @@ class ExistingCluster(ClusterBackend):
         self._default_ssh_user = default_ssh_user
 
     @property
-    def cluster_cls(self) -> Type['ExistingClusterManager']:
+    def cluster_cls(self):
         """
         Return the `ClusterManager` class to use to create and manage a
         cluster.

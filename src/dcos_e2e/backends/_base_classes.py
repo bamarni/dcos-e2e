@@ -4,7 +4,7 @@ Abstract base classes.
 
 import abc
 from pathlib import Path
-from typing import Any, Dict, Set, Type
+from typing import Any, Dict, Set
 
 from ..node import Node
 
@@ -110,7 +110,7 @@ class ClusterBackend(abc.ABC):
 
     @property
     @abc.abstractmethod
-    def cluster_cls(self) -> Type[ClusterManager]:
+    def cluster_cls(self):
         """
         Return the `ClusterManager` class to use to create and manage a
         cluster.

@@ -12,7 +12,7 @@ from pathlib import Path
 from shutil import copyfile, copytree, ignore_patterns, rmtree
 from tempfile import TemporaryDirectory
 from textwrap import dedent
-from typing import Any, Dict, List, Optional, Set, Type, Union
+from typing import Any, Dict, List, Optional, Set, Union
 
 import docker
 import yaml
@@ -85,7 +85,7 @@ class Docker(ClusterBackend):
         )
 
     @property
-    def cluster_cls(self) -> Type['DockerCluster']:
+    def cluster_cls(self):
         """
         Return the `ClusterManager` class to use to create and manage a
         cluster.
@@ -509,6 +509,7 @@ class DockerCluster(ClusterManager):
 
         genconf_args = [
             'bash',
+            '-x',
             str(build_artifact),
             '--offline',
             '-v',
